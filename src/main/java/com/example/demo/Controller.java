@@ -16,7 +16,6 @@ package com.example.demo;
 
 import com.example.demo.beans.User;
 import com.example.demo.repo.UserRepository;
-import org.apache.tomcat.jni.Error;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -85,7 +84,7 @@ public class Controller {
   }
 
   @GetMapping(value = "/users/{id}")
-  public User getUser(@PathVariable Long id){
+  public User getUser(@PathVariable Long id) {
     return userRepository.findById(id).orElse(null);
   }
 
@@ -94,8 +93,8 @@ public class Controller {
     userRepository.deleteById(id);
   }
 
-  @DeleteMapping(value="/users/all")
-  public void deleteAll(){
+  @DeleteMapping(value = "/users/all")
+  public void deleteAll() {
     userRepository.deleteAll();
   }
 
