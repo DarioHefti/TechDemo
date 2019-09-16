@@ -94,4 +94,9 @@ public class Controller {
     userRepository.deleteById(id);
   }
 
+  @DeleteMapping(value="/users/all")
+  public void deleteAll(){
+    userRepository.deleteAll();
+  }
+
 }
