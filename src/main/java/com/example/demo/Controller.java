@@ -16,6 +16,7 @@ package com.example.demo;
 
 import com.example.demo.beans.User;
 import com.example.demo.repo.UserRepository;
+import org.apache.tomcat.jni.Error;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -81,6 +82,11 @@ public class Controller {
   @GetMapping(value = "/search/olderThan/{age}")
   public List<User> getUserOlderThan(@PathVariable int age) {
     return userRepository.findOlderThan(age);
+  }
+
+  @GetMapping(value = "/users/{id}")
+  public User getUser(@PathVariable Long id){
+    return userRepository.findById(id).orElse(null);
   }
 
   @DeleteMapping(value = "/users/{id}")
